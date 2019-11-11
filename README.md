@@ -11,6 +11,19 @@ Things you may want to cover:
 
 * Configuration
 
+テーブル名
+・ユーザー管理
+・ツイート管理
+・画像管理
+カラム名
+・name
+・tweet
+・photo
+カラムの型
+カラムのオプション（null false制約など）
+アソシエーション
+
+
 * Database creation
 
 * Database initialization
