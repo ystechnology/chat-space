@@ -11,27 +11,34 @@ Things you may want to cover:
 
 * Configuration
 
-テーブル名
-・ユーザー管理
-・ツイート管理
-・画像管理
-カラム名
-・name
-・tweet
-・photo
-カラムの型
-カラムのオプション（null false制約など）
-アソシエーション
-## groups_usersテーブル
+## users_テーブル
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false|
+|password|string|null: false|
+|nickname|string|null: false|
+### Association
+- has_many :tweets
+- has_many :comments
 
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-
 ### Association
 - belongs_to :group
 - belongs_to :user
+
+## post_テーブル
+|Column|Type|Options|
+|------|----|-------|
+|image|text||
+|text|text||
+|user_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- has_many :comments
 
 * Database creation
 
