@@ -18,16 +18,15 @@ Things you may want to cover:
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
-- has_many :post
-- has_many :comments
+- has_many :posts
 
 ## groups_テーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|name|text|null: false|
 ### Association
-- has_many :posts_tags
-- has_many  :posts,  through:  :posts_tags
+- has_many  :group_users
+- has_many  :posts
 
 ## groups_usersテーブル
 |Column|Type|Options|
@@ -46,7 +45,7 @@ Things you may want to cover:
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :comments
+- has_many :groups
 
 * Database creation
 
