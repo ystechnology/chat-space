@@ -18,8 +18,16 @@ Things you may want to cover:
 |password|string|null: false|
 |nickname|string|null: false|
 ### Association
-- has_many :tweets
+- has_many :post
 - has_many :comments
+
+## groups_テーブル
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+### Association
+- has_many :posts_tags
+- has_many  :posts,  through:  :posts_tags
 
 ## groups_usersテーブル
 |Column|Type|Options|
