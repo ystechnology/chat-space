@@ -33,25 +33,25 @@
   }
 }
 
-.mmmxxx{
+.main{
   background-color: #fafafa;
   box-sizing: border-box;
   padding: 46px 40px 0;
   height: calc(100% - 100px - 90px);
-  .mmmxxb{
+  .a-main{
     display: flex;
-    .mmmxxc{
+    &___mname{
       font-size: 16px;
       color: #434A54;
       font-weight: bold;
     }
-    .mmmxxd{
+    &__date{
       padding-left: 10px;
       color: #999999;
       font-size: 12px;
     }
   }
-  .mmmxxe{
+  .b-main{
     padding-top: 10px;
     color: #434A54;
     font-size: 14px;
