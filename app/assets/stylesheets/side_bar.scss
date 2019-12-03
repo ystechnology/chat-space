@@ -1,0 +1,44 @@
+.side-bar {
+  box-sizing: border-box;
+  color: white;
+  width: 300px;
+  .header{
+    background-color: #253141;
+    height: 100px;
+    display: flex;
+    &__name{
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      width: 50%;
+      font-size: 16px;
+      padding-top: 40px;
+      padding-left: 20px;
+    }
+    &__setion{
+      color: #fff;
+      float: right;
+      width: 50%;
+      padding-top: 40px;
+      padding-left: 120px;
+  }
+}
+
+.contents{
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+  background-color: #2f3e51;
+  &__group{
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-left: 20px;
+    }
+  &__group1{
+    color: #fff;
+    font-size: 11px;
+    padding-left: 20px;
+  }
+}
+}
