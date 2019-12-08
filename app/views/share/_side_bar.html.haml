@@ -1,19 +1,17 @@
 .side-bar
   .header
-    %h3.header__name
+    .header__name
       = current_user.name
-    %ul.header__lists
-      %li.list
-        = link_to new_group_path do
-          = icon('fas', 'edit', class: 'icon')
-      %li.list
-        = link_to edit_user_path(current_user) do
-          = icon('fas', 'cog', class: 'icon')
-  .groups
+    .header__setion
+      = link_to new_group_path do
+        = icon('fa', 'edit',class: 'icon')
+      = link_to edit_user_path(current_user) do
+        = icon('fas', 'cog', class: 'icon')
+  .contents 
     - current_user.groups.each do |group|
-      .group
-        = link_to group_messages_path(group) do
-          .group__name
+      .groups
+        = link_to '#' do
+          .contents__group
             = group.name
-          .group__message
+          .contents__group1
             メッセージはまだありません。
