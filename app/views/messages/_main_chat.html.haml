@@ -1,0 +1,31 @@
+.chat
+  .header
+    .left-header
+      .left-header__groupname
+        = @group.name
+        .left-header__menber
+          menber :
+          .left-header__menber_user
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
+      = link_to 'edit',edit_group_path(@group.id) ,class:'right-header'
+  .main
+    = render @messages
+
+    .a-main
+      .a-main__mname
+        yoshiki
+      .a-main__date
+        2019/12/01
+    .b-main
+      this is a first messages
+
+
+  .form
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
