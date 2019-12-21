@@ -3,7 +3,7 @@
 }
 
 .chat{
-  width: calc(100% - 300px);
+  width: calc(100vw - 300px);
   .header{
     height: 100px;
     padding: 0 40px;
@@ -20,6 +20,9 @@
         font-size: 12px;
         margin-top: 15px;
       }
+      &__menber_user{
+        padding-left: 5px;
+      }
     }
     .right-header{
       border: 1px solid lightblue;
@@ -31,33 +34,41 @@
       padding: 0 20px;
     }
   }
-}
 
-.main{
+
+.messages{
   background-color: #fafafa;
   box-sizing: border-box;
   padding: 46px 40px 0;
-  height: calc(100% - 100px - 90px);
-  .a-main{
-    display: flex;
-    &___mname{
-      font-size: 16px;
-      color: #434A54;
-      font-weight: bold;
+  height: calc(100vh - 100px - 90px);
+  overflow: scroll;
+  .message{
+    .upper-message{
+      display: flex;
+      &__user-name{
+        font-size: 16px;
+        color: #434A54;
+        font-weight: bold;
+      }
+      &__date{
+        padding-left: 10px;
+        color: #999999;
+        font-size: 12px;
+      }
     }
-    &__date{
-      padding-left: 10px;
-      color: #999999;
-      font-size: 12px;
+    .lower-message{
+      margin-top: 10px;
+      &__content{
+        color: #434A54;
+        font-size: 14px;
+        margin-bottom: 40px;
+      }
     }
-  }
-  .b-main{
-    padding-top: 10px;
-    color: #434A54;
-    font-size: 14px;
+    .lower-message__image{
+      max-height: 500px;
+    }
   }
 }
-
 
 .form {
   background-color: #DDDDDD;
@@ -83,7 +94,6 @@
       display: none;
     }
   }
-
   &__submit {
     background-color: lightblue;
     border: none;
@@ -94,4 +104,5 @@
     margin-left: 15px;
     padding: 0 30px;
     }
+  }
 }
