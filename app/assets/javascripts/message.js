@@ -2,13 +2,13 @@ $(function(){
     function buildMessage(message){
     if (message.image){
       var html = 
-      `<div class="message"> 
+      `<div class="message" data-message-id = ${message.id}> 
         <div class="upper-message">
           <div class="upper-message__user-name">
             ${message.user_name}
           </div>
           <div class="upper-message__date">
-            ${message.date}
+            ${message.created_at}
           </div>
         </div>
         <div class="lower-message">
@@ -22,13 +22,13 @@ $(function(){
 
   } else{
       var html = 
-      `<div class="message"> 
+      `<div class="message" data-message-id = ${message.id}> 
         <div class="upper-message">
           <div class="upper-message__user-name">
             ${message.user_name}
           </div>
           <div class="upper-message__date">
-            ${message.date}
+            ${message.created_at}
           </div>
         </div>
         <div class="lower-message">
@@ -39,7 +39,8 @@ $(function(){
       </div>`
       return html;
     };
-  }
+  };
+  
   $('#new_message').on('submit', function(e){
     e.preventDefault()
     var formData = new FormData(this);
@@ -63,4 +64,29 @@ $(function(){
     });
     return false;
   });
+
+   function reloadMessages () {
+      last_message_id = $('.message:last').attr("data-message-id");
+      $.ajax({
+        url: "api/messages",
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildMessage(message)
+        });
+        $('.messages').append(insertHTML);
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      })
+      .fail(function() {
+        alert('error');
+      });
+    };
+    if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 2000);
+  }
 });
+
