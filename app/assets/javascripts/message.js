@@ -6,6 +6,7 @@ $(function(){
       <div class="upper-message">
         <div class="upper-message__user-name">
           ${message.user_name}
+
         </div>
         <div class="upper-message__date">
           ${message.created_at}
@@ -26,10 +27,12 @@ $(function(){
       <div class="upper-message">
         <div class="upper-message__user-name">
           ${message.user_name}
+
         </div>
         <div class="upper-message__date">
           ${message.created_at}
         </div>
+
       </div>
       <div class="lower-message">
         <p class="lower-message__content">
@@ -67,6 +70,7 @@ $('#new_message').on('submit', function(e){
 
  function reloadMessages () {
     last_message_id = $('.message:last').attr("data-message-id");
+
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -89,4 +93,5 @@ $('#new_message').on('submit', function(e){
   setInterval(reloadMessages, 2000);
 }
 });
+
 
